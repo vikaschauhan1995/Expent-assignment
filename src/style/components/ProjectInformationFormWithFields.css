@@ -1,0 +1,45 @@
+.ProjectInformationFormWithFields {
+  display: flex;
+}
+
+.ProjectInformationFormWithFields__left {
+  display: flex;
+}
+
+.ProjectInformationFormWithFields__left .button {
+  border: 1px solid white !important;
+  border-radius: 10px;
+  width: 100%;
+  padding: 12px;
+  /* align-items: left !important; */
+  justify-content: start;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 140%;
+  /* identical to box height, or 20px */
+
+  letter-spacing: 0.01em;
+
+  /* Expent Design System/Dark/Dark 1 */
+
+  color: #003B4D;
+  background: rgba(0, 59, 77, 0.05);
+}
+
+.ProjectInformationFormWithFields__left .button.active {
+  border: 1px solid #003B4D !important;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 140%;
+  /* identical to box height, or 20px */
+
+  letter-spacing: 0.01em;
+
+  /* Expent Design System/Dark/Dark 1 */
+
+  color: #003B4D;
+  background-color: white;
+}
