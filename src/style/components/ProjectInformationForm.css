@@ -4,3 +4,161 @@
   background-color: white;
   border-radius: 10px;
 }
+
+
+.ProjectInformationForm__page_location {
+  /* font-family: 'Manrope';
+  font-style: normal; */
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 140%;
+  /* identical to box height, or 20px */
+
+  letter-spacing: 0.01em;
+
+  /* Expent/Dark/Dark 2 */
+
+  color: rgba(0, 59, 77, 0.6);
+  /* color: red; */
+}
+
+.ProjectInformationForm__head {
+  display: flex;
+}
+
+.ProjectInformationForm__heading {
+  /* font-family: 'Manrope'; */
+  font-style: normal;
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 140%;
+  /* or 36px */
+
+  letter-spacing: 0.01em;
+
+  color: #003B4D;
+}
+
+.ProjectInformationForm__head_left {
+  flex: 1;
+}
+
+.ProjectInformationForm__dates {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 140%;
+  /* identical to box height, or 20px */
+
+  letter-spacing: 0.01em;
+
+  /* Expent Design System/Dark/Dark 2 */
+
+  color: rgba(0, 59, 77, 0.6);
+
+}
+
+.ProjectInformationForm_date_detail {
+  display: flex;
+}
+
+.dot {
+  background-color: #003B4D99;
+  height: 2px;
+  width: 2px;
+  margin: 5px;
+  margin-top: 9px;
+}
+
+.ProjectInformationForm_short_names {
+  margin-left: 15px;
+  display: flex;
+}
+
+.ProjectInformationForm__short_name_badge {
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  font-size: 10px;
+  margin-left: -5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.ProjectInformationForm__mid {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.ProjectInformationForm__mid_card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+  gap: 12px;
+
+  width: 220px;
+  height: 62px;
+  left: 468px;
+  top: 238px;
+
+  /* Expent Design System/Light/White 1 */
+
+  background: #FFFFFF;
+}
+
+.ProjectInformationForm__mid_card_title {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 148%;
+  /* identical to box height, or 24px */
+
+  text-align: center;
+  letter-spacing: 0.01em;
+
+  /* Expent Design System/Dark/Dark 1 */
+
+  color: #003B4D;
+
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.ProjectInformationForm__mid_card_date {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 148%;
+  /* identical to box height, or 18px */
+
+  text-align: center;
+  letter-spacing: 0.01em;
+
+  /* Expent Design System/Dark/Dark 2 */
+
+  color: rgba(0, 59, 77, 0.6);
+
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.ProjectInformationForm__progress_bar {
+  height: 4px;
+  width: 100%;
+  flex: none;
+  order: 3;
+}
