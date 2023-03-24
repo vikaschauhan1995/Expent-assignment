@@ -18,22 +18,22 @@ const ProjectInformationForm = () => {
     );
   }) : 'Nop';
   return (
-    <div className="ProjectInformationForm__container">
-      <div className="ProjectInformationForm__page_location">Projects &gt; ... &gt; Project Information</div>
-      <div className="ProjectInformationForm__head">
+    <div className="ProjectInformationForm__container" style={{ marginBottom: '90px' }}>
+      <div className="ProjectInformationForm__page_location p-3">Projects &gt; ... &gt; Project Information</div>
+      <div className="ProjectInformationForm__head mx-3">
         <div className="ProjectInformationForm__head_left">
           <div><h2 className="ProjectInformationForm__heading">Request for Software</h2></div>
           <div className="ProjectInformationForm_date_detail">
             <div className="ProjectInformationForm__dates">12 Oct - 26 Oct, 2023</div>
             <div className="dot"></div>
-            <div className="ProjectInformationForm_short_names">
+            <div className="ProjectInformationForm_short_names" style={{ marginTop: '-3px' }}>
               {shortNameBadge}
             </div>
           </div>
         </div>
         <div className="ProjectInformationForm__head_right">
-          <Button variant="outlined" color="info" endIcon={<ArrowForward />}>
-            Send
+          <Button variant="outlined" className="ProjectInformationForm__button" color="info" endIcon={<ArrowForward />}>
+            Project Overview
           </Button>
         </div>
       </div>

@@ -14,6 +14,7 @@ const RadioGroupComponent = () => {
         row
         aria-labelledby="demo-row-radio-buttons-group-label"
         name="row-radio-buttons-group"
+        className="mx-2"
       >
         <FormControlLabel className="custom_radio_button" value="yes" control={<Radio className="custom_radio" />} label="Yes" />
         <FormControlLabel className="custom_radio_button" value="no" control={<Radio className="custom_radio" />} label="No" />

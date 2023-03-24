@@ -33,7 +33,7 @@
   font-size: 26px;
   line-height: 140%;
   /* or 36px */
-
+  margin-top: -10px;
   letter-spacing: 0.01em;
 
   color: #003B4D;
@@ -161,4 +161,17 @@
   width: 100%;
   flex: none;
   order: 3;
+}
+
+.ProjectInformationForm__button {
+  background: #FFFFFF !important;
+  /* Expent Design System/Dark/Dark 4 */
+
+  border: 1px solid rgba(0, 59, 77, 0.15) !important;
+  border-radius: 10px !important;
+  text-transform: none !important;
+  color: #003B4D !important;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
 }

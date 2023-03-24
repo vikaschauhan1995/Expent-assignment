@@ -1,0 +1,33 @@
+.ProjectInformationFooter__container {
+  position: fixed;
+  bottom: 0;
+  height: 84px;
+  background-color: white;
+  width: 100%;
+}
+
+.ProjectInformationFooter__innerContainer {
+  height: 100%;
+  padding-right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.ProjectInformationFooter__button {
+  /* background: #FFFFFF !important; */
+  /* Expent Design System/Dark/Dark 4 */
+
+  border: 1px solid rgba(0, 59, 77, 0.15) !important;
+  border-radius: 10px !important;
+  text-transform: none !important;
+  color: #003B4D !important;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.ProjectInformationFooter__button.filled {
+  background-color: #17BEBB !important;
+  color: #003B4D !important;
+}
