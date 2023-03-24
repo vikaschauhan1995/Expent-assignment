@@ -1,0 +1,15 @@
+.custom_radio_button {
+  border: 1px solid rgba(0, 59, 77, 0.15);
+  border-radius: 10px;
+  width: 248px;
+  height: 44px;
+}
+
+
+.custom_radio {
+  background: rgba(0, 59, 77, 0.05) !important;
+  border-top-left-radius: 10px !important;
+  border-bottom-left-radius: 10px !important;
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}

@@ -1,37 +1,68 @@
-.ProjectInformationFormWithFields {
-  display: flex;
-}
-
-.ProjectInformationFormWithFields__left {
-  display: flex;
-}
-
-.ProjectInformationFormWithFields__left .button {
-  border: 1px solid white !important;
-  border-radius: 10px;
-  width: 100%;
-  padding: 12px;
-  /* align-items: left !important; */
-  justify-content: start;
-
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 140%;
-  /* identical to box height, or 20px */
-
-  letter-spacing: 0.01em;
-
-  /* Expent Design System/Dark/Dark 1 */
-
-  color: #003B4D;
+.faded_container {
   background: rgba(0, 59, 77, 0.05);
+  border-radius: 12px;
 }
 
-.ProjectInformationFormWithFields__left .button.active {
-  border: 1px solid #003B4D !important;
+.white_container {
+  background: #FFFFFF;
+  border-radius: 12px;
+}
+
+.ProjectInformationFormWithFields__heading {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 148%;
+  /* identical to box height, or 24px */
+
+  letter-spacing: 0.01em;
+
+  /* Expent Design System/Dark/Dark 1 */
+
+  color: #003B4D;
+}
+
+.light_label {
   font-style: normal;
   font-weight: 500;
+  font-size: 14px;
+  line-height: 140%;
+  /* identical to box height, or 20px */
+
+  letter-spacing: 0.01em;
+
+  /* Expent Design System/Dark/Dark 2 */
+
+  color: rgba(0, 59, 77, 0.6);
+}
+
+.dark_label {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 140%;
+  /* identical to box height, or 20px */
+  letter-spacing: 0.01em;
+  /* Expent Design System/Dark/Dark 1 */
+
+  color: #003B4D;
+
+}
+
+#dragAndDrop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hover-cursor-pointer:hover {
+  cursor: pointer;
+}
+
+.drag-and-drop-label-text {
+  font-style: normal;
+  font-weight: 600;
   font-size: 14px;
   line-height: 140%;
   /* identical to box height, or 20px */
@@ -41,5 +72,18 @@
   /* Expent Design System/Dark/Dark 1 */
 
   color: #003B4D;
-  background-color: white;
+}
+
+.drag-and-drop-description {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 140%;
+  /* identical to box height, or 20px */
+
+  letter-spacing: 0.01em;
+
+  /* Expent Design System/Dark/Dark 1 */
+
+  color: #003B4D99;
 }

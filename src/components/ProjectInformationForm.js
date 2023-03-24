@@ -3,7 +3,7 @@ import '../style/components/ProjectInformationForm.css';
 import Button from '@mui/material/Button';
 import ArrowForward from '@mui/icons-material/ArrowForward';
 import ProgressBar from './ProgressBar';
-import ProjectInformationFormWithFields from './ProjectInformationFormWithFields';
+import ProjectInformationFormWithBody from './ProjectInformationFormWithBody';
 // import CircleSharpIcon from '@mui/icons-material/CircleSharp';
 
 const ProjectInformationForm = () => {
@@ -54,7 +54,7 @@ const ProjectInformationForm = () => {
         </div>
       </div>
       <hr />
-      <ProjectInformationFormWithFields />
+      <ProjectInformationFormWithBody />
     </div>
   )
 }

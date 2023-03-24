@@ -40,10 +40,10 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="sticky" color="transparent">
+    <AppBar position="static" color="transparent">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} style={{ color: 'white' }} />
           <Typography
             variant="h6"
             noWrap
@@ -55,7 +55,7 @@ function ResponsiveAppBar() {
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
-              color: 'inherit',
+              color: 'white',
               textDecoration: 'none',
             }}
           >
