@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import '../style/pages/Workflow.css';
 import ReactFlow, {
   MiniMap,
@@ -14,6 +14,7 @@ import { workflowNodes, commonEdgeProps, edgePropsNoArrow } from '../constants';
 import { getNodeObjectById } from '../methods/getNodeObjectById';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import RadioButtonCheckedOutlinedIcon from '@mui/icons-material/RadioButtonCheckedOutlined';
+import { createNewNode } from '../methods/createNewNode';
 
 const startCellStyle = {
   background: '#FFFFFF',
@@ -68,17 +69,48 @@ export default function Workflow() {
       <div className="Workflow__node_description">{item?.description}</div>
     </div>
   }
-
-  const initialNodes = [
+  const WorkFlowNodeDetail = ({ id }) => {
+    const [isAddButtonClicked, setIsAddButtonClicked] = useState(false);
+    const item = getNodeObjectById(id);
+    const addButtonClick = () => {
+      setIsAddButtonClicked(true);
+      setInitialNodes(preState => {
+        const currentNode = preState[id - 1];
+        const newNode = createNewNode(currentNode, preState);
+        setNodes([...preState, { ...newNode, data: { label: <WorkFlowNodeDetail id={parseInt(newNode.id)} /> } }]);
+        console.log("parseInt(newNode.id)=>", parseInt(newNode.id));
+        setEdges(prevEdgesState => {
+          return [...prevEdgesState,
+          {
+            source: "" + id,
+            target: "" + newNode.id,
+            ...commonEdgeProps
+          }
+          ];
+        });
+        console.log("initialEdges =>", [...preState, newNode]);
+        console.log(currentNode);
+        return [...preState, newNode];
+      });
+    }
+    return (
+      <div>
+        <div className="Workflow__node_title">{item?.title}</div>
+        <div className="Workflow__node_description">{item?.description}</div>
+        <button onClick={addButtonClick} style={{ display: isAddButtonClicked ? 'none' : 'block' }}>+</button>
+      </div>
+    )
+  }
+  const [initialNodes, setInitialNodes] = useState([
     { id: '1', position: { x: 400, y: 100 }, data: { label: startCell() }, style: startCellStyle },
     { id: '2', position: { x: 400, y: 150 }, data: { label: nodeDetailById(1) }, style: commonCellStyle },
     { id: '3', position: { x: 400, y: 300 }, data: { label: nodeDetailById(2) }, style: commonCellStyle },
     { id: '4', position: { x: 400, y: 400 }, data: { label: unionCell() }, style: unionCellStyle },
-    { id: '5', position: { x: 60, y: 500 }, data: { label: nodeDetailById(3) }, style: commonCellStyle },
-    { id: '6', position: { x: 400, y: 500 }, data: { label: nodeDetailById(4) }, style: commonCellStyle },
-    { id: '7', position: { x: 750, y: 500 }, data: { label: nodeDetailById(5) }, style: commonCellStyle },
-  ];
-  const initialEdges = [
+    { id: '5', position: { x: 60, y: 500 }, data: { label: <WorkFlowNodeDetail id={5} /> }, style: commonCellStyle },
+    { id: '6', position: { x: 400, y: 500 }, data: { label: <WorkFlowNodeDetail id={6} /> }, style: commonCellStyle },
+    { id: '7', position: { x: 750, y: 500 }, data: { label: <WorkFlowNodeDetail id={7} /> }, style: commonCellStyle },
+  ]);
+  const [initialEdges, setInitialEdges] = useState([
     { source: '1', target: '2', ...commonEdgeProps },
     { source: '2', target: '3', ...commonEdgeProps },
     { source: '3', target: '4', ...edgePropsNoArrow },
@@ -86,13 +118,13 @@ export default function Workflow() {
     { source: '4', target: '5', ...commonEdgeProps },
     { source: '4', target: '6', ...commonEdgeProps },
     { source: '4', target: '7', ...commonEdgeProps },
-  ];
+  ]);
 
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
   const onConnect = useCallback((params) => setEdges((eds) => addEdge(params, eds)), [setEdges]);
-  // console.log("edges=>", edges);
+  // console.log("initialNodes=>", initialNodes);
   return (
     <div style={{ width: '100vw', height: '100vh' }}>
       <ReactFlow
