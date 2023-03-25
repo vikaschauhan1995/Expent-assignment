@@ -1,5 +1,4 @@
 import React from 'react'
-import ProjectInformationFooter from '../components/ProjectInformationFooter';
 import ProjectInformationForm from '../components/ProjectInformationForm';
 import ResponsiveAppBar from '../components/ResponsiveAppBar';
 import '../style/pages/ProjectInformationIntakeForm.css';
@@ -9,7 +8,6 @@ const ProjectInformationIntakeForm = () => {
     <div className="ProjectInformationIntakeForm__container">
       <ResponsiveAppBar />
       <ProjectInformationForm />
-      <ProjectInformationFooter />
     </div>
   )
 }

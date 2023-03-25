@@ -21,19 +21,16 @@ const names = [
   'Kelly Snyder',
 ];
 
-const MultiSelectOption = ({ label }) => {
-  // const theme = useTheme();
-  const [personName, setPersonName] = React.useState([]);
-
+const MultiSelectOption = ({ label, name, state, setState }) => {
   const handleChange = (event) => {
     const {
       target: { value },
     } = event;
-    setPersonName(
-      // On autofill we get a stringified value.
-      typeof value === 'string' ? value.split(',') : value,
-    );
+    setState(prevState => {
+      return { ...prevState, [name]: typeof value === 'string' ? value.split(',') : value };
+    });
   };
+  console.log("personName", state[name]);
   return (
     <div>
       <FormControl sx={{ m: 1, width: 300 }}>
@@ -42,7 +39,7 @@ const MultiSelectOption = ({ label }) => {
           labelId="demo-multiple-name-label"
           // id="demo-multiple-name"
           multiple
-          value={personName}
+          value={state[name]}
           onChange={handleChange}
           input={<OutlinedInput label={label} />}
           // MenuProps={MenuProps}

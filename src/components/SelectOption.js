@@ -7,10 +7,11 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 // import Form from 'react-bootstrap/Form';
 
-const SelectOption = ({ label }) => {
-  const [age, setAge] = React.useState('');
+const SelectOption = ({ label, name, state, setState }) => {
   const handleChange = (event) => {
-    setAge(event.target.value);
+    setState(preState => {
+      return { ...preState, [name]: event.target.value };
+    });
   };
   return (
     <Box sx={{ maxWidth: 306 }}>
@@ -19,7 +20,7 @@ const SelectOption = ({ label }) => {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={age}
+          value={state?.name}
           label={label}
           onChange={handleChange}
           className="SelectOption"

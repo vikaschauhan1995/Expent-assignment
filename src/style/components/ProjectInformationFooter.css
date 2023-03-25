@@ -1,10 +1,11 @@
 .ProjectInformationFooter__container {
   position: fixed;
+  left: 0;
   bottom: 0;
   height: 84px;
   background-color: white;
   width: 100%;
-  z-index: 1;
+  /* background-color: red; */
 }
 
 .ProjectInformationFooter__innerContainer {
