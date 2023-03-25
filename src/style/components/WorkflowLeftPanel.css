@@ -1,0 +1,56 @@
+.WorkflowLeftPanel__container {
+  align-self: center;
+  /* border: 1px solid red; */
+  flex-direction: column;
+  display: flex;
+  margin-left: 12px;
+}
+
+.WorkflowLeftPanel__dragable {
+  color: rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  /* border: 1px solid red; */
+  justify-content: center;
+  margin-left: 15px;
+  margin-bottom: 5px;
+}
+
+.WorkflowLeftPanel__dragable>* {
+  transform: rotate(90deg);
+  /* border: 1px solid green; */
+  height: 10px;
+  /* width: 23px; */
+}
+
+.WorkflowLeftPanel__item_description {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 148%;
+  /* identical to box height, or 15px */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.01em;
+
+  /* Expent/Light/White 2 */
+
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.WorkflowLeftPanel__items_container {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 5px;
+}
+
+.WorkflowLeftPanel__item_innner {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: #FFFFFF;
+}

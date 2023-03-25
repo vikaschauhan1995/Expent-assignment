@@ -16,6 +16,8 @@ import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import RadioButtonCheckedOutlinedIcon from '@mui/icons-material/RadioButtonCheckedOutlined';
 import { createNewNode } from '../methods/createNewNode';
 import WorkflowHeader from '../components/WorkflowHeader';
+import WorkflowLeftPanel from '../components/WorkflowLeftPanel';
+import WorkflowRightPanel from '../components/WorkflowRightPanel';
 
 const startCellStyle = {
   background: '#FFFFFF',
@@ -135,8 +137,9 @@ export default function Workflow() {
   const onConnect = useCallback((params) => setEdges((eds) => addEdge(params, eds)), [setEdges]);
   return (
     <>
-      <div style={{ width: '100vw', height: '100vh', backgroundColor: '#003B4D' }}>
+      <div style={{ width: '100vw', height: '100vh', backgroundColor: '#003B4D', display: 'flex' }}>
         <WorkflowHeader />
+        <WorkflowLeftPanel />
         <ReactFlow
           nodes={nodes}
           edges={edges}
@@ -146,10 +149,11 @@ export default function Workflow() {
           onConnect={onConnect}
           style={{ zIndex: 2 }}
         >
-          <Controls />
+          {/* <Controls /> */}
           {/* <MiniMap /> */}
           {/* <Background variant="dots" gap={12} size={1} /> */}
         </ReactFlow>
+        <WorkflowRightPanel />
       </div>
     </>
   );
