@@ -47,3 +47,8 @@
 .react-flow__handle {
   opacity: 0 !important;
 }
+
+.Workflow__node_button {
+  border-radius: 50%;
+  font-weight: 800;
+}

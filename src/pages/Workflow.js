@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
 import '../style/pages/Workflow.css';
 import ReactFlow, {
   MiniMap,
@@ -15,6 +15,7 @@ import { getNodeObjectById } from '../methods/getNodeObjectById';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import RadioButtonCheckedOutlinedIcon from '@mui/icons-material/RadioButtonCheckedOutlined';
 import { createNewNode } from '../methods/createNewNode';
+import WorkflowHeader from '../components/WorkflowHeader';
 
 const startCellStyle = {
   background: '#FFFFFF',
@@ -69,16 +70,16 @@ export default function Workflow() {
       <div className="Workflow__node_description">{item?.description}</div>
     </div>
   }
+  const [workFlowNodesDetailList, setWorkFlowNodesDetailList] = useState([...workflowNodes]);
   const WorkFlowNodeDetail = ({ id }) => {
     const [isAddButtonClicked, setIsAddButtonClicked] = useState(false);
-    const item = getNodeObjectById(id);
+    let item = getNodeObjectById(id, workFlowNodesDetailList);
     const addButtonClick = () => {
       setIsAddButtonClicked(true);
-      setInitialNodes(preState => {
+      setNodes(preState => {
         const currentNode = preState[id - 1];
         const newNode = createNewNode(currentNode, preState);
-        setNodes([...preState, { ...newNode, data: { label: <WorkFlowNodeDetail id={parseInt(newNode.id)} /> } }]);
-        console.log("parseInt(newNode.id)=>", parseInt(newNode.id));
+        // console.log("parseInt(newNode.id)=>", parseInt(newNode.id));
         setEdges(prevEdgesState => {
           return [...prevEdgesState,
           {
@@ -88,27 +89,35 @@ export default function Workflow() {
           }
           ];
         });
-        console.log("initialEdges =>", [...preState, newNode]);
-        console.log(currentNode);
-        return [...preState, newNode];
+        setWorkFlowNodesDetailList(prevState => {
+          const newNode_ = { id: parseInt(newNode.id), title: item.title, description: item.description };
+          return [...prevState, newNode_]
+        });
+        const newNodeList = [...preState, { ...newNode, data: { label: <WorkFlowNodeDetail id={parseInt(newNode.id)} /> } }];
+        setInitialNodes(newNodeList);
+        return newNodeList;
       });
     }
     return (
       <div>
         <div className="Workflow__node_title">{item?.title}</div>
         <div className="Workflow__node_description">{item?.description}</div>
-        <button onClick={addButtonClick} style={{ display: isAddButtonClicked ? 'none' : 'block' }}>+</button>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <div>
+            <button onClick={addButtonClick} className="Workflow__node_button" style={{ display: isAddButtonClicked ? 'none' : 'block' }}>+</button>
+          </div>
+        </div>
       </div>
     )
   }
   const [initialNodes, setInitialNodes] = useState([
-    { id: '1', position: { x: 400, y: 100 }, data: { label: startCell() }, style: startCellStyle },
+    { id: '1', position: { x: 496, y: 90 }, data: { label: startCell() }, style: startCellStyle },
     { id: '2', position: { x: 400, y: 150 }, data: { label: nodeDetailById(1) }, style: commonCellStyle },
     { id: '3', position: { x: 400, y: 300 }, data: { label: nodeDetailById(2) }, style: commonCellStyle },
-    { id: '4', position: { x: 400, y: 400 }, data: { label: unionCell() }, style: unionCellStyle },
-    { id: '5', position: { x: 60, y: 500 }, data: { label: <WorkFlowNodeDetail id={5} /> }, style: commonCellStyle },
-    { id: '6', position: { x: 400, y: 500 }, data: { label: <WorkFlowNodeDetail id={6} /> }, style: commonCellStyle },
-    { id: '7', position: { x: 750, y: 500 }, data: { label: <WorkFlowNodeDetail id={7} /> }, style: commonCellStyle },
+    { id: '4', position: { x: 501, y: 450 }, data: { label: unionCell() }, style: unionCellStyle },
+    { id: '5', position: { x: 60, y: 600 }, data: { label: <WorkFlowNodeDetail id={5} /> }, style: commonCellStyle },
+    { id: '6', position: { x: 400, y: 600 }, data: { label: <WorkFlowNodeDetail id={6} /> }, style: commonCellStyle },
+    { id: '7', position: { x: 750, y: 600 }, data: { label: <WorkFlowNodeDetail id={7} /> }, style: commonCellStyle },
   ]);
   const [initialEdges, setInitialEdges] = useState([
     { source: '1', target: '2', ...commonEdgeProps },
@@ -124,22 +133,24 @@ export default function Workflow() {
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
   const onConnect = useCallback((params) => setEdges((eds) => addEdge(params, eds)), [setEdges]);
-  // console.log("initialNodes=>", initialNodes);
   return (
-    <div style={{ width: '100vw', height: '100vh' }}>
-      <ReactFlow
-        nodes={nodes}
-        edges={edges}
-        // edges="step"
-        onNodesChange={onNodesChange}
-        onEdgesChange={onEdgesChange}
-        onConnect={onConnect}
-        style={{ backgroundColor: '#003B4D' }}
-      >
-        <Controls />
-        {/* <MiniMap /> */}
-        {/* <Background variant="dots" gap={12} size={1} /> */}
-      </ReactFlow>
-    </div>
+    <>
+      <div style={{ width: '100vw', height: '100vh', backgroundColor: '#003B4D' }}>
+        <WorkflowHeader />
+        <ReactFlow
+          nodes={nodes}
+          edges={edges}
+          // edges="step"
+          onNodesChange={onNodesChange}
+          onEdgesChange={onEdgesChange}
+          onConnect={onConnect}
+          style={{ zIndex: 2 }}
+        >
+          <Controls />
+          {/* <MiniMap /> */}
+          {/* <Background variant="dots" gap={12} size={1} /> */}
+        </ReactFlow>
+      </div>
+    </>
   );
 }

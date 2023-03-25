@@ -1,0 +1,66 @@
+.WorkflowHeader__container {
+  background: rgba(255, 255, 255, 0.15);
+  height: 84px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 1;
+  left: 15px;
+  right: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.WorkflowHeader__title {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 148%;
+  /* identical to box height, or 30px */
+
+  letter-spacing: 0.01em;
+
+  /* Expent/Light/White 1 */
+
+  color: #FFFFFF;
+}
+
+
+.WorkflowHeader__description {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 148%;
+  /* identical to box height, or 18px */
+
+  letter-spacing: 0.01em;
+
+  /* Expent/Light/White 2 */
+
+  color: rgba(255, 255, 255, 0.6);
+}
+
+
+
+.WorkflowHeader__button {
+  border: 1px solid rgba(255, 255, 255, 0.6) !important;
+  border-radius: 10px !important;
+  text-transform: none !important;
+  color: #003B4D !important;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  width: 120px !important;
+}
+
+.WorkflowHeader__button.filled {
+  background-color: #17BEBB !important;
+  border: 1px solid #17BEBB !important;
+  color: #003B4D !important;
+}
+
+.color-white {
+  color: white !important;
+}
