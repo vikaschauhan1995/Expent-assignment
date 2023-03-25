@@ -5,6 +5,7 @@ import ArrowForward from '@mui/icons-material/ArrowForward';
 import ProgressBar from './ProgressBar';
 import ProjectInformationFormWithBody from './ProjectInformationFormWithBody';
 // import CircleSharpIcon from '@mui/icons-material/CircleSharp';
+import KeyboardDoubleArrowLeftOutlinedIcon from '@mui/icons-material/KeyboardDoubleArrowLeftOutlined';
 
 const ProjectInformationForm = () => {
   const nameList = [{ name: 'DG', colorCode: '#FCAF58' }, { name: 'SJ', colorCode: '#907DCE' }, { name: 'AG', colorCode: '#90A955' }];
@@ -19,6 +20,9 @@ const ProjectInformationForm = () => {
   }) : 'Nop';
   return (
     <div className="ProjectInformationForm__container" style={{ marginBottom: '90px' }}>
+      {/* <div >
+        <KeyboardDoubleArrowLeftOutlinedIcon />
+      </div> */}
       <div className="ProjectInformationForm__page_location p-3">Projects &gt; ... &gt; Project Information</div>
       <div className="ProjectInformationForm__head mx-3">
         <div className="ProjectInformationForm__head_left">

@@ -1,0 +1,49 @@
+.Workflow__container {}
+
+.Workflow__node_title {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 140%;
+  /* identical to box height, or 20px */
+
+  letter-spacing: 0.01em;
+
+  /* Expent/Light/White 1 */
+
+  color: #FFFFFF;
+}
+
+.Workflow__node_description {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 148%;
+  /* identical to box height, or 18px */
+
+  letter-spacing: 0.01em;
+
+  /* Expent/Light/White 2 */
+
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.Workflow__unionCell_text {
+  margin-top: -7px !important;
+  position: absolute;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 148%;
+  /* identical to box height, or 18px */
+
+  letter-spacing: 0.01em;
+
+  /* Expent/Dark/Dark 1 */
+
+  color: #003B4D;
+}
+
+.react-flow__handle {
+  opacity: 0 !important;
+}
